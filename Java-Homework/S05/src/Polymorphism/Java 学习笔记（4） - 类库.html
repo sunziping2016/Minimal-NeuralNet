@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0115)file:///home/sun/Downloads/Java-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%884%EF%BC%89-%2D-%E7%B1%BB%E5%BA%93.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Java 学习笔记（4） - 类库 : 墨泉平溪 : http://sunziping.com</title>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<div align="center">
+<table width="700" border="0" bgcolor="#CCCCCC" cellspacing="1" cellpadding="5" style="text-align:left">
+  <tbody><tr>
+    <td bgcolor="#F9F9F9" style="font-size:12px; color:#666666; text-align:left;">
+	This page was exported from 墨泉平溪 
+	[ <a href="http://sunziping.com/" target="_blank">http://sunziping.com</a> ]<br> 
+	Export date: Sat Apr 2 14:33:16 2016 / +0000  GMT
+	</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FDFDFD" style="font-size:14px; color:#666666; text-align:left;">
+	<h2 style="text-align:left">Java 学习笔记（4） - 类库</h2><br>
+	这篇主要关于 Java 的一些常用类库。
+
+<!--more-->
+<h1>数字</h1>
+所有的数字类型继承自<code>Number</code>，包括<code>Byte</code>、<code>Integer</code>、<code>Double</code>、<code>Short</code>、<code>Float</code>、<code>Long</code>以及用于高精度的<code>BigDecimal</code>和<code>BigInteger</code>和用于多线程操作的<code>AtomicInteger</code>和<code>AtomicLong</code>。
+
+以下是Number类具有的方法：
+<ul>
+	<li><code>byte byteValue()</code>
+<code>short shortValue()</code>
+<code>int intValue()</code>
+<code>long longValue()</code>
+<code>float floatValue()</code>
+<code>double doubleValue()</code>
+将<code>Number</code>对象转型成基本数据类型。</li>
+	<li><code>int compareTo(Byte anotherByte)</code>
+<code>int compareTo(Double anotherDouble)</code>
+<code>int compareTo(Float anotherFloat)</code>
+<code>int compareTo(Integer anotherInteger)</code>
+<code>int compareTo(Long anotherLong)</code>
+<code>int compareTo(Short anotherShort)</code>
+将<code>Number</code>对象与实参比较大小。</li>
+	<li><code>boolean equals(Object obj)</code>
+判断两个对象是否相同。</li>
+</ul>
+以<code>Integer</code>类为例，每一个<code>Number</code>子类还包含以下的几个方法：
+<ul>
+	<li><code>static Integer decode(String s)</code>
+解析整数，可接受 10 进制、8 进制和 16 进制。</li>
+	<li><code>static int parseInt(String s)</code>
+<code>static int parseInt(String s, int radix)</code>
+返回整数，<code>radix</code>可接受 10 进制、2 进制、8 进制和 16 进制。</li>
+	<li><code>String toString()</code>
+<code>static String toString(int i)</code>
+返回对象对应的<code>String</code>对象。</li>
+	<li><code>statijava.text.DecimalFormatc Integer valueOf(int i)</code>
+<code>static Integer valueOf(String s)</code>
+<code>static Integer valueOf(String s, int radix)</code>
+返回对象对应的<code>Integer</code>对象。</li>
+</ul>
+
+可通过<code>printf</code>或<code>format</code>格式化输出字串，与 C 语言中的使用方法基本相同。以下是不同之处：
+<ul>
+	<li><b><code>%n</code>：</b>与平台相关的换行符。不建议使用<code>n</code>。</li>
+	<li><b>时间格式化符号</b>：对于<code>Calendar</code>对象，有以下格式化符号：
+	<ul>
+		<li><b><code>tB</code>：</b>区域特定化的月份全名；</li>
+		<li><b><code>td</code>：</b>2 位数的日期，必要时带前导 0；</li>
+		<li><b><code>te</code>：</b>2 位数的日期，不带前导 0；</li>
+		<li><b><code>ty</code>：</b>2 位数的年份；</li>
+		<li><b><code>tY</code>：</b>4 位数的年份；</li>
+		<li><b><code>tl</code>：</b>12 小时制的小时；</li>
+		<li><b><code>tM</code>：</b>2 位数的分钟，必要时带前导 0；</li>
+		<li><b><code>tp</code>：</b>区域特定化的上下午；</li>
+		<li><b><code>tM</code>：</b>2 位数的月份，必要时带前导 0；</li>
+		<li><b><code>tD</code>：</b><code>%tm/%td/%ty</code>。</li>
+	</ul>
+	</li>
+	<li><b><code>,</code>：</b>区域特定化的数字分割符。</li>
+</ul>
+
+可通过<code>java.text.DecimalFormat</code>类格式化数字。<code>java.lang.Math</code>则提供了更多数学相关的常数和方法。
+
+<h1>字符和字符串</h1>
+<code>Character</code>类和<code>String</code>类是不可改变的。<code>java.lang.Character</code>提供了字符处理的一些方法。转义字符与 C 语言相同。<code>java.lang.String</code>提供了字符处理的一些方法，其中<code>format()</code>和输出有相同的使用方法。
+
+	</td>
+  </tr>
+  <tr>
+    <td bgcolor="#F9F9F9" style="font-size:13px; color:#666666; text-align:left;">
+	
+	</td>
+  </tr>
+  <tr>
+    <td bgcolor="#F9F9F9" style="font-size:13px; color:#666666; text-align:left;">
+	Post date: 2016-02-02 10:28:06<br>Post date GMT: 2016-02-02 02:28:06<br>
+	Post modified date: 2016-02-02 10:28:06<br>
+		Post modified date GMT: 2016-02-02 02:28:06
+	</td>
+  </tr>
+  <tr>
+    <td bgcolor="#F9F9F9" style="font-size:12px; color:#666666; text-align:left;">
+	Powered by [ Universal Post Manager ] plugin. HTML saving format developed by gVectors Team
+	<a href="http://www.gvectors.com/" target="_blank">www.gVectors.com</a>
+	</td>
+  </tr>
+</tbody></table>
+</div><br>
+
+</body></html>

@@ -311,6 +311,7 @@ int main(int args, const char *argv[])
 	Matrix samples(75, 7);
 	fin >> samples;
 	fin.close();
+	Matrix samples1 = samples.submatrix(0, 50, 0, 7), samples2 = samples.submatrix(50, 75, 0, 7);
 
 	int times = 100;
 	double rate = 0.1;
@@ -323,16 +324,16 @@ int main(int args, const char *argv[])
 		}
 	}
 
-	NeuralNet nn({4, 5, 3}, rate);
-	ifstream in("nerualnet.txt");
-	if (in) {
-		in >> nn;
-		in.close();
-	}
+	NeuralNet nn({4, 5, 5, 3}, rate);
+	//ifstream in("nerualnet.txt");
+	//if (in) {
+	//	in >> nn;
+	//	in.close();
+	//}
 
 	for (int i = 0; i < times; ++i) {
-		nn.train(samples, 1000);
-		auto error = nn.eval_network(samples);
+		nn.train(samples1, 1000);
+		auto error = nn.eval_network(samples2);
 		cerr << "Regression Error: " << get<0>(error) << "\tClassification Error: " << get<1>(error) << "\tTimes: " << i << endl;
 	}
 
